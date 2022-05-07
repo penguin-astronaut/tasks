@@ -55,7 +55,11 @@
 .new-task__input {
     margin-right: 10px;
 }
-
+.new-task__error {
+    margin-top: 5px;
+    font-size: 12px;
+    color: #ee2500;
+}
 .task {
     display: flex;
     padding: 10px 0;
