@@ -25,7 +25,7 @@ class Users {
 
         $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
 
-        $userId = $this->getUserId($login, $passwordHashed);
+        $userId = $this->checkLogin($login);
         if ($userId) {
             return [
                 'status' => self::STATUS_ERROR,
@@ -77,6 +77,15 @@ class Users {
         $sql = "SELECT id FROM users WHERE login=? AND password=?";
         $stmt = $this->db->prepare($sql);
         $stmt->execute([$login, $password]);
+
+        return $stmt->fetchColumn();
+    }
+
+    private function checkLogin(string $login): int
+    {
+        $sql = "SELECT id FROM users WHERE login=?";
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute([$login]);
 
         return $stmt->fetchColumn();
     }
