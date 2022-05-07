@@ -14,7 +14,7 @@ class Tasks
 
     public function get(int $userId): array
     {
-        $stm = $this->db->prepare('SELECT * FROM tasks WHERE id = ?');
+        $stm = $this->db->prepare('SELECT * FROM tasks WHERE user_id = ?');
         $stm->execute([$userId]);
         return $stm->fetchAll() ?: [];
     }
