@@ -55,9 +55,7 @@ class Users {
             ];
         }
 
-        $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
-
-        $id = $this->getUserId($login, $passwordHashed);
+        $id = $this->getUserId($login, $password);
 
         if (!$id) {
             return [
@@ -72,13 +70,20 @@ class Users {
         ];
     }
 
-    private function getUserId(string $login, $password): int
+    private function getUserId(string $login, string $password): int
     {
-        $sql = "SELECT id FROM users WHERE login=? AND password=?";
+        $sql = "SELECT * FROM users WHERE login=?";
         $stmt = $this->db->prepare($sql);
-        $stmt->execute([$login, $password]);
+        $stmt->execute([$login]);
+        if (!$user = $stmt->fetch()) {
+            return 0;
+        }
 
-        return $stmt->fetchColumn();
+        if (!password_verify($password, $user['password'])) {
+            return 0;
+        }
+
+        return $user['id'];
     }
 
     private function checkLogin(string $login): int
