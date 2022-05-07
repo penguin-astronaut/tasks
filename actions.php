@@ -2,8 +2,8 @@
 
 session_start();
 
-require 'Tasks.php';
-require 'DB.php';
+require './models/Tasks.php';
+require './db/DB.php';
 
 $tasks = new Tasks(DB::getInstance());
 

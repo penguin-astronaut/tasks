@@ -17,7 +17,7 @@
     <h1>Tasks list</h1>
     <div class="tasks-actions">
         <div class="new-task">
-            <form class="new-task__form" method="post" action="/run_migrate.php">
+            <form class="new-task__form" method="post" action="/index.php">
                 <input class="input new-task__input" type="text" name="text" placeholder="Enter text...">
                 <button class="button button--filled">add task</button>
             </form>

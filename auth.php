@@ -7,8 +7,8 @@ if (!empty($_SESSION['user'])) {
     die;
 }
 
-require 'Users.php';
-require 'DB.php';
+require './models/Users.php';
+require './db/DB.php';
 
 
 $error = null;
