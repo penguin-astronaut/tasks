@@ -28,6 +28,7 @@
             <p class="auth-form__error"><?=$error?></p>
         <?php endif; ?>
         <button class="button auth-form__button">Login</button>
+        <a class="auth-form__link" href="/register.php">Register</a>
     </form>
 </div>
 
