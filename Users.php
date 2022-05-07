@@ -19,7 +19,7 @@ class Users {
         if (!$login || !$password) {
             return [
                 'status' => self::STATUS_ERROR,
-                'message' => 'Login and password required!'
+                'message' => 'Login and password are required!'
             ];
         }
 
@@ -29,7 +29,7 @@ class Users {
         if ($userId) {
             return [
                 'status' => self::STATUS_ERROR,
-                'message' => 'User with that login exist'
+                'message' => 'User with that login already exist'
             ];
         }
 
