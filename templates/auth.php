@@ -13,8 +13,8 @@
 </head>
 <body>
 <div class="wrapper">
-    <h1>Login</h1>
-    <form class="auth-form" action="/login.php" method="post">
+    <h1>Authentication</h1>
+    <form class="auth-form" action="/auth.php" method="post">
         <label>
             Login:
             <input class="input auth-form__input" type="text" name="login">
@@ -28,7 +28,6 @@
             <p class="auth-form__error"><?=$error?></p>
         <?php endif; ?>
         <button class="button auth-form__button">Login</button>
-        <a class="auth-form__link" href="/register.php">Register</a>
     </form>
 </div>
 
